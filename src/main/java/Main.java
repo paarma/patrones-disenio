@@ -16,7 +16,12 @@ public class Main {
         /**
          * Probar patrón de diseño "AbstractFactory"
          */
-        probarAbstractFactory();
+        //probarAbstractFactory();
+
+        /**
+         * Probar patrón de diseño "Builder"
+         */
+        probarBuilder();
     }
 
     private static void probarFactoryMethod(){
@@ -32,5 +37,22 @@ public class Main {
         PaymentMethod paymentMethod = (PaymentMethod) abstractFactory1.create("DEBIT");
 
         System.out.println("Una tarjeta de tipo: " + tarjeta.getCardType() + " con el método de pago: " + paymentMethod.doPayment());
+    }
+
+    private static void probarBuilder(){
+        patrones.creacional.builder.Card card = new patrones.creacional.builder.Card.CardBuilder("VISA",
+                "000 111 222 333")
+                .name("Tarjeta test")
+                .expires(2020)
+                .credit(false)
+                .build();
+
+        System.out.println(card);
+
+        patrones.creacional.builder.Card card2 = new patrones.creacional.builder.Card.CardBuilder("MASTER",
+                "888 888 888 888")
+                .build();
+
+        System.out.println(card2);
     }
 }
