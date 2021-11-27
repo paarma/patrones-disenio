@@ -29,9 +29,14 @@ public class Main {
         //probarBuilder();
 
         /**
-         * Proba patrón de diseño prototype
+         * Probar patrón de diseño prototype
          */
-        probarPrototype();
+        //probarPrototype();
+
+        /**
+         * Probar patrón de diseño singleton
+         */
+        probarSingleton();
     }
 
     private static void probarFactoryMethod(){
@@ -78,5 +83,10 @@ public class Main {
         }catch (CloneNotSupportedException e){
             e.printStackTrace();
         }
+    }
+
+    private static void probarSingleton(){
+        patrones.creacional.singleton.Card.getInstancia().setCardNumber("111-111-111-111");
+        System.out.println(patrones.creacional.singleton.Card.getInstancia().getCardNumber());
     }
 }
