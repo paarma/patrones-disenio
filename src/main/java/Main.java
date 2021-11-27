@@ -5,6 +5,11 @@ import patrones.creacional.abstractfactory.PaymentMethod;
 import patrones.creacional.factorymethod.Payment;
 import patrones.creacional.factorymethod.PaymentFactory;
 import patrones.creacional.factorymethod.TypePayment;
+import patrones.creacional.prototype.PrototypeCard;
+import patrones.creacional.prototype.PrototypeFactory;
+
+import static patrones.creacional.prototype.PrototypeFactory.CartType.AMEX;
+import static patrones.creacional.prototype.PrototypeFactory.CartType.VISA;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,7 +26,12 @@ public class Main {
         /**
          * Probar patrón de diseño "Builder"
          */
-        probarBuilder();
+        //probarBuilder();
+
+        /**
+         * Proba patrón de diseño prototype
+         */
+        probarPrototype();
     }
 
     private static void probarFactoryMethod(){
@@ -54,5 +64,19 @@ public class Main {
                 .build();
 
         System.out.println(card2);
+    }
+
+    private static void probarPrototype(){
+        PrototypeFactory.loadCard();
+
+        try{
+            PrototypeCard visa = PrototypeFactory.getInstance(VISA);
+            visa.getCar();
+
+            PrototypeCard amex = PrototypeFactory.getInstance(AMEX);
+            amex.getCar();
+        }catch (CloneNotSupportedException e){
+            e.printStackTrace();
+        }
     }
 }
