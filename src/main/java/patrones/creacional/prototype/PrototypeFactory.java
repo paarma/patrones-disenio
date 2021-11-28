@@ -3,6 +3,10 @@ package patrones.creacional.prototype;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Este factory se encarga de retornar un CLON de objeto específico
+ * al llamar al método "clon()" de las clases que implementan la interfaz "PrototypeCard"
+ */
 public class PrototypeFactory {
 
     public static class CartType {

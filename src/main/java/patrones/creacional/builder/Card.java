@@ -12,6 +12,7 @@ public class Card {
     private final int expires;
     private final boolean credit;
 
+    //Se maneja el constructor privado para que sea solo la clase Builder la encargada de crear el objeto
     private Card(CardBuilder builder){
         this.cardType = builder.cardType;
         this.number = builder.number;
@@ -52,7 +53,8 @@ public class Card {
     }
 
     /**
-     * Clase builder
+     * Clase BUILDER que será la encargada de crear los objetos de tipo "Card"
+     * Este builder tendrá como obligatorios 2 atributos al momento de su creación.
      */
     public static class CardBuilder{
         private String cardType;

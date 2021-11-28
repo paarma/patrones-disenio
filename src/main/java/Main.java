@@ -51,7 +51,8 @@ public class Main {
         AbstractFactory abstractFactory1 = FactoryProvider.getFactory("PaymentMethod");
         PaymentMethod paymentMethod = (PaymentMethod) abstractFactory1.create("DEBIT");
 
-        System.out.println("Una tarjeta de tipo: " + tarjeta.getCardType() + " con el método de pago: " + paymentMethod.doPayment());
+        System.out.println("Una tarjeta de tipo: " + tarjeta.getCardType() +
+                " con el método de pago: " + paymentMethod.doPayment());
     }
 
     private static void probarBuilder(){
