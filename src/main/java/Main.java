@@ -1,3 +1,4 @@
+import patrones.comportamiento.chainofresponsability.Tarteja;
 import patrones.creacional.abstractfactory.AbstractFactory;
 import patrones.creacional.abstractfactory.Card;
 import patrones.creacional.abstractfactory.FactoryProvider;
@@ -13,30 +14,20 @@ import static patrones.creacional.prototype.PrototypeFactory.CartType.VISA;
 
 public class Main {
     public static void main(String[] args) {
+
         /**
-         * Probar patrón de diseño "FactoryMethod"
+         * Patrones de diseño creacionales
          */
         //probarFactoryMethod();
-
-        /**
-         * Probar patrón de diseño "AbstractFactory"
-         */
         //probarAbstractFactory();
-
-        /**
-         * Probar patrón de diseño "Builder"
-         */
         //probarBuilder();
-
-        /**
-         * Probar patrón de diseño prototype
-         */
         //probarPrototype();
+        //probarSingleton();
 
         /**
-         * Probar patrón de diseño singleton
+         * Patrones de diseño de comportamiento
          */
-        probarSingleton();
+        probarChainOfResponsability();
     }
 
     private static void probarFactoryMethod(){
@@ -89,5 +80,10 @@ public class Main {
     private static void probarSingleton(){
         patrones.creacional.singleton.Card.getInstancia().setCardNumber("111-111-111-111");
         System.out.println(patrones.creacional.singleton.Card.getInstancia().getCardNumber());
+    }
+
+    private static void probarChainOfResponsability(){
+        Tarteja tarteja = new Tarteja();
+        tarteja.creditCardRequest(40000);
     }
 }
